@@ -1,0 +1,37 @@
+name: XL Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: self-hosted 
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install DAR (Package Validation)
+      run: |
+        if ! command -v dar &> /dev/null; then
+          sudo apt-get update && sudo apt-get install -y dar
+        fi
+        
+    - name: Copy build artifact
+      run: |
+        TEMP_DIR=/home/ubuntu/temp
+        BUILD_DIR=/home/ubuntu/xl-deploy-artifacts/builds/latest
+        mkdir -p "$TEMP_DIR" "$BUILD_DIR"
+        cp hello-world-app.jar "$TEMP_DIR/"
+    
+    - name: Create DAR archive
+      run: |
+        cd /home/ubuntu/temp
+        dar -c hello-world -g hello-world-app.jar -R . -D .
+        mv hello-world.1.dar "$BUILD_DIR/"
+        
+    - name: Make deploy script executable
+      run: chmod +x deploy.sh
+
+    - name: Run deploy script
+      run: ./deploy.sh
