@@ -4,9 +4,9 @@
 set -e
 
 # Define variables
-BUILD_DIR="/home/ubuntu/deploy-artifacts1/builds/latest"
-DEPLOY_DIR="/home/ubuntu/deploy-artifacts1/releases"
-SYMLINK_PATH="/home/ubuntu/deploy-artifacts1/current"
+BUILD_DIR="/home/ubuntu/xl-deploy-artifacts/builds/latest"
+DEPLOY_DIR="/home/ubuntu/xl-deploy-artifacts/releases"
+SYMLINK_PATH="/home/ubuntu/xl-deploy-artifacts/current"
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 RELEASE_DIR="$DEPLOY_DIR/release-$TIMESTAMP"
 
