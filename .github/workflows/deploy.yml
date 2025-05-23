@@ -27,8 +27,8 @@ jobs:
     - name: Create DAR archive
       run: |
         cd /home/ubuntu/temp
-        dar -c hello-world -g hello-world-app.jar -R . -D .
-        mv hello-world.1.dar "$BUILD_DIR/"
+        dar -c hello-world -g hello-world-app.jar
+        mv hello-world.1.dar /home/ubuntu/xl-deploy-artifacts/builds/latest/
         
     - name: Make deploy script executable
       run: chmod +x deploy.sh
