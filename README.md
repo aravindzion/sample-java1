@@ -9,6 +9,11 @@ az storage blob list \
   --container-name backup \
   --output table
 
+az sql midb list --resource-group rg-pw-etl-eastus2-prod \
+  --managed-instance sqlmi-pw-etl-db1-eastus2-prod \
+  --query "[].{Name:name, GeoBackupStatus:restorableDroppedDatabaseGeoBackup, RestoreTime:earliestRestoreDate}"
+
+
 
   azcopy copy \
   "https://wasdpeus2abakmi55352.blob.core.windows.net/<same-path>/<..._S2_0.log>?<SAS>" \
