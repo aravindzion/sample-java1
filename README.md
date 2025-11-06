@@ -4,6 +4,11 @@ az storage blob list \
   --output table
 
 
+az storage blob list \
+  --account-name wasdpeus2abakmi55352-secondary \
+  --container-name backup \
+  --output table
+
 
   azcopy copy \
   "https://wasdpeus2abakmi55352.blob.core.windows.net/<same-path>/<..._S2_0.log>?<SAS>" \
