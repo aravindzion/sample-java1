@@ -1,21 +1,5 @@
-az storage blob list \
-  --account-name wasdpeus2abakmi55352 \
-  --container-name bkpmi-sqlmi-pw-etl-db1-eas-0f42c321-ab56-43a4-8389-304627b6d892 \
-  --output table
+We are initiating the cloud migration of Ubiquity Health Plan Portal. As part of the CMCoE process, we need to complete an assessment to generate a migration scorecard.
 
+Please review the attached questionnaire and provide the required details before the meeting. We will walk through the responses and try to finalize the scorecard during the session.
 
-az storage blob list \
-  --account-name wasdpeus2abakmi55352-secondary \
-  --container-name backup \
-  --output table
-
-az sql midb list --resource-group rg-pw-etl-eastus2-prod \
-  --managed-instance sqlmi-pw-etl-db1-eastus2-prod \
-  --query "[].{Name:name, GeoBackupStatus:restorableDroppedDatabaseGeoBackup, RestoreTime:earliestRestoreDate}"
-
-
-
-  azcopy copy \
-  "https://wasdpeus2abakmi55352.blob.core.windows.net/<same-path>/<..._S2_0.log>?<SAS>" \
-  "https://wasdpeus2abakmi55352-secondary.blob.core.windows.net/<same-path>/<..._S2_0.log>?<SAS>"
-
+Also, please feel free to forward this invite/mail to any SMEs or application owners who should be part of this assessment.
